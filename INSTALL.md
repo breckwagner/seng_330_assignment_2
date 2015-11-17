@@ -3,17 +3,17 @@
 
 # Installing
 
-To compile the project, use the commands:
+To compile the project, use the commands while in the src directory:
 
 ```shell
-$ cmake ./src/
-$ make ./src/
+$ cmake ./
+$ make
 ```
 
 To run the project:
 
 ```shell
-$ run
+$ ./run
 ```
 
 To install the tools to make this on Mac OS X:
@@ -27,3 +27,11 @@ Generating doc files is done by:
 ```shell
 $ doxygen doxyconfig
 ```
+
+
+Generating the protocol buffer classes:
+```shell
+$ protoc --proto_path=./src --cpp_out=./src machine.proto
+```
+
+The unit tests can be compiled by downloading gtest from github following there steps
