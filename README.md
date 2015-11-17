@@ -20,27 +20,9 @@ Your answer should be a single PDF file submitted through ConneX.
 
 2 Phase 3
 
-• All your source code and related files relevant to the project should be
-hosted at github. Git is a modern version control system and github
-is a free hosting service that is based around git. There are several
-tutorials online that can help you understand the basics of it git. You
-need to simulate doing actual development by doing several push/pull
-requests so don’t wait until the end to push your code as we will be
-checking the evolution of the project over time. Provide the url to your
-github page for your project (2pt)
+All my source code and related files relevant to the project are hosted at github. The url to my github page for your project is "https://github.com/breckwagner/seng_330_assignment_2/"
 
-"https://github.com/breckwagner/"
-
-• Your project should contain a INSTALL.txt file with instructions for
-how to build the project, what tools are needed, etc. You can either
-provide project files for popular development environments like XCode
-or Visual Studio or use a build framework like Ant or CMake. Include
-in your report either a screenshot of the build configuration or the corresponding
-congifuration file. Windows, OS X and Linux submissions
-are all acceptable. If you can make your project multi-platform even
-better but no extra points. (2pts)
-
-
+My project has a file INSTALL.md which has instructions for how to build the project, what tools are needed, etc. CMakes was used for the build system. It has been tested on OS X which was described as acceptable.
 
 • Prototype Design Pattern
 Your code should utilize the Prototype Design pattern to create new
