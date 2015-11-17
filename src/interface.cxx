@@ -6,13 +6,13 @@
 #include "Config.h"
 #include <iostream>
 #include "Machine.cxx"
-
+#include "machine.pb.h"
 #include "Ergometer.cxx"
 #include "Bike.cxx"
 
 using namespace std;
 
-bool process_cmd(std::string cmd, vector<Machine> _machines_in_complex) {
+bool process_cmd(std::string cmd, vector<Machine> &_machines_in_complex, int &_id) {
     if(cmd.compare("quit")==0) {return false;}
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -34,11 +34,22 @@ bool process_cmd(std::string cmd, vector<Machine> _machines_in_complex) {
     }
 
 ////////////////////////////////////////////////////////////////////////////////
-
+// DOESN'T WORK ON OS X 10.10
+/*
     else if(cmd.compare("save")==0) {
-
+        vector<char> messages;
+        for(Machine i : _machines_in_complex) {
+            data::SerializedMachine output;
+            output.set_id(i.getID());
+            output.set_status(i.getReport().back());
+            string log_out;
+            for(string j : i.getReport()){
+                log_out.append(j+",");
+            }
+            output.set_machine_log(log_out);
+        }
     }
-
+*/
 ////////////////////////////////////////////////////////////////////////////////
 
     else if(cmd.find("add")==0) {
@@ -52,14 +63,25 @@ bool process_cmd(std::string cmd, vector<Machine> _machines_in_complex) {
 ////////////////////////////////////////////////////////////////////////////////
 
     else if(cmd.find("remove")==0) {
-
+        _machines_in_complex.erase (_machines_in_complex.begin()+_id%_machines_in_complex.size());
     }
 
 ////////////////////////////////////////////////////////////////////////////////
 
     else if(cmd.find("set")==0) {
-
+        std::cout << "Set state of Machine to:" << std::endl;
+        std::cin >> cmd;
     }
+
+////////////////////////////////////////////////////////////////////////////////
+
+else if(cmd.find("+")==0) {
+    std::cout << "New Machine sellected: " << (++_id)%_machines_in_complex.size() << std::endl;
+}
+
+else if(cmd.find("-")==0) {
+    std::cout << "New Machine sellected: " << (--_id)%_machines_in_complex.size() << std::endl;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -77,7 +99,7 @@ int main(int argc, char *argv[]) {
     Bike proto_bike;
 
     vector<Machine> machines_in_complex;
-
+    int count_loop = 0;
     while(num_ergs>0 || num_bikes>0){
         if(num_ergs>0) {
             machines_in_complex.push_back(proto_erg);
@@ -86,14 +108,11 @@ int main(int argc, char *argv[]) {
             machines_in_complex.push_back(proto_bike);
             num_bikes--;
         }
-        machines_in_complex.back().setID(num_ergs + num_bikes + 1);
-        cout << (num_ergs + num_bikes + 1) << "\n";
+        machines_in_complex[count_loop++].setID(num_ergs + num_bikes + 1);
     }
-    for(Machine i : machines_in_complex) {
-        cout << i.getID();
-    }
+    int mac_id = 0;
     string input;
     do {
         std::cout << "Type command: \n";
-    } while (std::cin >> input && process_cmd(input, machines_in_complex));
+    } while (std::cin >> input && process_cmd(input, machines_in_complex, mac_id));
 }

@@ -50,8 +50,10 @@ vector<string> Machine::getReport() {
 }
 
 bool Machine::setID(int new_id) {
-    if(new_id>0) id = new_id;
+    id = new_id;
+    /*if(new_id>0) id = new_id;
     else return false;
+    return true;*/
     return true;
 }
 
