@@ -25,5 +25,5 @@ $ brew install protobuf doxygen cmake
 Generating doc files is done by:
 
 ```shell
-$ doxygen Doxyfile
+$ doxygen doxyconfig
 ```

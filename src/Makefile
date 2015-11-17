@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.3.2/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/breckwagner/Documents/2015.09/SENG330/assignment 2"
+CMAKE_SOURCE_DIR = "/Users/breckwagner/Documents/2015.09/SENG330/assignment 2/src"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/breckwagner/Documents/2015.09/SENG330/assignment 2"
+CMAKE_BINARY_DIR = "/Users/breckwagner/Documents/2015.09/SENG330/assignment 2/src"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/breckwagner/Documents/2015.09/SENG330/assignment 2/CMakeFiles" "/Users/breckwagner/Documents/2015.09/SENG330/assignment 2/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/breckwagner/Documents/2015.09/SENG330/assignment 2/src/CMakeFiles" "/Users/breckwagner/Documents/2015.09/SENG330/assignment 2/src/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/breckwagner/Documents/2015.09/SENG330/assignment 2/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/breckwagner/Documents/2015.09/SENG330/assignment 2/src/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,33 @@ run/fast:
 	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/build
 .PHONY : run/fast
 
+interface.o: interface.cxx.o
+
+.PHONY : interface.o
+
+# target to build an object file
+interface.cxx.o:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/interface.cxx.o
+.PHONY : interface.cxx.o
+
+interface.i: interface.cxx.i
+
+.PHONY : interface.i
+
+# target to preprocess a source file
+interface.cxx.i:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/interface.cxx.i
+.PHONY : interface.cxx.i
+
+interface.s: interface.cxx.s
+
+.PHONY : interface.s
+
+# target to generate assembly for a file
+interface.cxx.s:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/interface.cxx.s
+.PHONY : interface.cxx.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -132,6 +159,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... run"
+	@echo "... interface.o"
+	@echo "... interface.i"
+	@echo "... interface.s"
 .PHONY : help
 
 
