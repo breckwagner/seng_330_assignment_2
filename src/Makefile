@@ -123,6 +123,19 @@ run/fast:
 	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/build
 .PHONY : run/fast
 
+#=============================================================================
+# Target rules for targets named unit
+
+# Build rule for target.
+unit: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unit
+.PHONY : unit
+
+# fast build rule for target.
+unit/fast:
+	$(MAKE) -f CMakeFiles/unit.dir/build.make CMakeFiles/unit.dir/build
+.PHONY : unit/fast
+
 interface.o: interface.cxx.o
 
 .PHONY : interface.o
@@ -150,6 +163,33 @@ interface.cxx.s:
 	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/interface.cxx.s
 .PHONY : interface.cxx.s
 
+unittest.o: unittest.cxx.o
+
+.PHONY : unittest.o
+
+# target to build an object file
+unittest.cxx.o:
+	$(MAKE) -f CMakeFiles/unit.dir/build.make CMakeFiles/unit.dir/unittest.cxx.o
+.PHONY : unittest.cxx.o
+
+unittest.i: unittest.cxx.i
+
+.PHONY : unittest.i
+
+# target to preprocess a source file
+unittest.cxx.i:
+	$(MAKE) -f CMakeFiles/unit.dir/build.make CMakeFiles/unit.dir/unittest.cxx.i
+.PHONY : unittest.cxx.i
+
+unittest.s: unittest.cxx.s
+
+.PHONY : unittest.s
+
+# target to generate assembly for a file
+unittest.cxx.s:
+	$(MAKE) -f CMakeFiles/unit.dir/build.make CMakeFiles/unit.dir/unittest.cxx.s
+.PHONY : unittest.cxx.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -158,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... unit"
 	@echo "... run"
 	@echo "... interface.o"
 	@echo "... interface.i"
 	@echo "... interface.s"
+	@echo "... unittest.o"
+	@echo "... unittest.i"
+	@echo "... unittest.s"
 .PHONY : help
 
 

@@ -1,64 +1,23 @@
 
-#include <vector>
-#include <string>
+
 #include <sstream>
+#include "Machine.h"
 
 using namespace std;
-
-
-class Machine {
-public:
-    /**
-     * Default constructor for Machine
-     * creates a Machine with id 0
-     */
-	Machine();
-
-    /**
-     * Copy constructor for Machine
-     */
-    Machine(const Machine &obj);
-
-    /**
-     * Destructor for Machine
-     */
-    ~Machine();
-
-    /**
-     * Changes the state of the machine to in use
-     * @return true if successful in changing state to "in use" else false
-     */
-    bool start();
-
-    /**
-     * Changes the state of the machine to in use
-     * @return true if successful in changing state to "idle" else false
-     */
-    bool stop();
-
-    /**
-     * Compiles a report on the Machines use from the machine_log
-     * @return a vector with the machines use one item at a time chronologically
-     */
-    vector<string> getReport();
-
-    /**
-     * Changes the id of the machine
-     * @param new_id is a new id to set the machines id to
-     * @return true if successful in changing id
-     */
-    bool setID(int);
-
-private:
-    int id;
-    vector<string> machine_log;
-    string status;
-};
 
 Machine::Machine(void) {
     id = 0;
     status = "idle";
     machine_log.push_back(status);
+}
+
+Machine::Machine(int _id, vector<string> _machine_log, string _status) {
+    id = _id;
+    machine_log = _machine_log;
+    status = _status;
+    if(machine_log.back().compare(status)!=0){
+        machine_log.push_back(status);
+    }
 }
 
 Machine::Machine(const Machine &obj) {
@@ -94,4 +53,8 @@ bool Machine::setID(int new_id) {
     if(new_id>0) id = new_id;
     else return false;
     return true;
+}
+
+int Machine::getID() {
+    return id;
 }

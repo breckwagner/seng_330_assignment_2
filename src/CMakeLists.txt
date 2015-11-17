@@ -3,6 +3,8 @@
 # set(PROJECT_SOURCE_DIR "src")
 # set(PROJECT_BINARY_DIR "src")
 
+set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++")
+
 cmake_minimum_required (VERSION 2.8)
 project (Assignment2)
 
@@ -26,6 +28,11 @@ include_directories("${PROJECT_BINARY_DIR}")
 
 # add the executable
 add_executable(run interface.cxx)
+
+
+add_executable(unit unittest.cxx)
+#target_link_libraries(unit gtest gtest_main)
+#add_test(unit runUnitTests)
 
 
 
