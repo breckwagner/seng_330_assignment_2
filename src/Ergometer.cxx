@@ -1,10 +1,7 @@
 // C++11 Pimpl idiom: header file
-#include <iostream>
-#include "Machine.cxx"
-using namespace std;
 
 
-s
+#include "Machine.h"
 
 
 /** \class Ergometer
@@ -15,9 +12,11 @@ s
  */
 class Ergometer : public Machine {
 public:
-	Ergometer(int);
+	Ergometer();
 private:
-	int i;
+
 };
 
-Ergometer::Ergometer(int id) : i(x) {}
+Ergometer::Ergometer(void) {
+
+}

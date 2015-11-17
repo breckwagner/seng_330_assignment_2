@@ -1,3 +1,7 @@
+#ifndef _MACHINE_H_
+#define _MACHINE_H_
+
+
 #include <vector>
 #include <string>
 
@@ -61,3 +65,5 @@ private:
     std::vector<std::string> machine_log;
     std::string status;
 };
+
+#endif

@@ -37,7 +37,7 @@ class MachineTest : public ::testing::Test {
 };
 
 // Tests that the Foo::Bar() method does Abc.
-
+/*
 TEST_F(MachineTest, Logic_1) {
     Machine m;
     ASSERT_TRUE(m.getReport().front().compare("idle")==0);
@@ -64,7 +64,7 @@ TEST_F(MachineTest, Init_Logic) {
 TEST_F(MachineTest, Logic_2) {
     EXPECT_EQ(0,0);
 }
-
+*/
 }  // namespace
 
 int main(int argc, char **argv) {
