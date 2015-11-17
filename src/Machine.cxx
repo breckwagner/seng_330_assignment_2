@@ -26,6 +26,12 @@ Machine::Machine(const Machine &obj) {
     machine_log.push_back(status);
 }
 
+Machine::Machine(const Machine &obj, int _id) {
+    id = _id;
+    status = "idle";
+    machine_log.push_back(status);
+}
+
 Machine::~Machine(void) {
 }
 
@@ -54,6 +60,12 @@ bool Machine::setID(int new_id) {
     /*if(new_id>0) id = new_id;
     else return false;
     return true;*/
+    return true;
+}
+
+bool Machine::setStatus(string new_status) {
+    status = new_status;
+    machine_log.push_back(status);
     return true;
 }
 

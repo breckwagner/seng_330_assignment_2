@@ -70,7 +70,9 @@ bool process_cmd(std::string cmd, vector<Machine> &_machines_in_complex, int &_i
 
     else if(cmd.find("set")==0) {
         std::cout << "Set state of Machine to:" << std::endl;
-        std::cin >> cmd;
+        string temp_out;
+        std::cin >> temp_out;
+        _machines_in_complex[_id].setStatus(temp_out);
     }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -99,16 +101,14 @@ int main(int argc, char *argv[]) {
     Bike proto_bike;
 
     vector<Machine> machines_in_complex;
-    int count_loop = 0;
     while(num_ergs>0 || num_bikes>0){
         if(num_ergs>0) {
-            machines_in_complex.push_back(proto_erg);
+            machines_in_complex.push_back(proto_erg); // , (num_ergs--)+num_bikes+1
             num_ergs--;
         } else if (num_bikes>0) {
-            machines_in_complex.push_back(proto_bike);
+            machines_in_complex.push_back(proto_bike); // , num_ergs+(num_bikes--)+1
             num_bikes--;
         }
-        machines_in_complex[count_loop++].setID(num_ergs + num_bikes + 1);
     }
     int mac_id = 0;
     string input;

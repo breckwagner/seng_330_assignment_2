@@ -19,10 +19,15 @@ public:
      */
     Machine(int _id, std::vector<std::string> _machine_log, std::string _status);
 
+	/**
+     * Implicit copy constructor for Machine
+     */
+    Machine(const Machine &obj);
+
     /**
      * Copy constructor for Machine
      */
-    Machine(const Machine &obj);
+    Machine(const Machine &obj, int _id);
 
     /**
      * Destructor for Machine
@@ -53,6 +58,13 @@ public:
      * @return true if successful in changing id
      */
     bool setID(int);
+
+	/**
+     * Changes the state of the machine
+     * @param new_state is a new state to set the machines id to
+     * @return true if successful in changing state
+     */
+    bool setStatus(std::string new_state);
 
 	/**
 	 * Gets the id of the machine
