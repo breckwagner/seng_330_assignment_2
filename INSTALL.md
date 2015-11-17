@@ -3,6 +3,12 @@
 
 # Installing
 
+To install the tools to make this on Mac OS X:
+
+```shell
+$ brew install protobuf doxygen cmake
+```
+
 To compile the project, use the commands while in the src directory:
 
 ```shell
@@ -14,12 +20,6 @@ To run the project:
 
 ```shell
 $ ./run
-```
-
-To install the tools to make this on Mac OS X:
-
-```shell
-$ brew install protobuf doxygen cmake
 ```
 
 Generating doc files is done (in the src directory) by:
@@ -34,4 +34,4 @@ Generating the protocol buffer classes:
 $ protoc --proto_path=./src --cpp_out=./src machine.proto
 ```
 
-The unit tests can be compiled by downloading gtest from github following there steps
+The unit tests can be compiled by downloading gtest from github following the steps provided in the google documentation for CMake
