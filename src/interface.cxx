@@ -35,9 +35,9 @@ bool process_cmd(std::string cmd, vector<Machine> &_machines_in_complex, int &_i
 
 ////////////////////////////////////////////////////////////////////////////////
 // DOESN'T WORK ON OS X 10.10
-/*
+
     else if(cmd.compare("save")==0) {
-        vector<char> messages;
+        vector<data::SerializedMachine> messages;
         for(Machine i : _machines_in_complex) {
             data::SerializedMachine output;
             output.set_id(i.getID());
@@ -47,9 +47,11 @@ bool process_cmd(std::string cmd, vector<Machine> &_machines_in_complex, int &_i
                 log_out.append(j+",");
             }
             output.set_machine_log(log_out);
+            messages.push_back(output);
+            output.writeTo(file);
         }
     }
-*/
+
 ////////////////////////////////////////////////////////////////////////////////
 
     else if(cmd.find("add")==0) {

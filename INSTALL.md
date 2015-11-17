@@ -22,10 +22,10 @@ To install the tools to make this on Mac OS X:
 $ brew install protobuf doxygen cmake
 ```
 
-Generating doc files is done by:
+Generating doc files is done (in the src directory) by:
 
 ```shell
-$ doxygen doxyconfig
+$ doxygen ../doxyconfig
 ```
 
 
